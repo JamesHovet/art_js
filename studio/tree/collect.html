@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tree of Your Life — Collect</title>
+  <link rel="stylesheet" href="/studio_shared.css">
+  <style>
+    /* Location search */
+    .form-group { position: relative; margin-bottom: 4px; }
+    #birth-location-results, .search-results {
+      position: absolute;
+      z-index: 1000;
+      background: #fff;
+      border: 1px solid #000;
+      max-height: 200px;
+      overflow-y: auto;
+      width: 100%;
+    }
+    .search-result-item { padding: 8px 12px; cursor: pointer; font-size: 13px; }
+    .search-result-item:hover { background: #f0f0f0; }
+    .search-loading { padding: 8px 12px; font-size: 13px; color: #888; }
+    /* Year table */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 6px 8px; border-bottom: 1px solid #eee; text-align: left; }
+    th { background: #f0f0f0; font-weight: bold; }
+    .location-cell { cursor: pointer; }
+    .location-cell:hover { background: #f5f5f5; }
+    .inline-search { width: 100%; padding: 4px; font-size: 13px; font-family: monospace; border: 1px solid #ccc; }
+    /* Phase 2 canvas */
+    #canvas-container {
+      width: 100%;
+      max-width: 576px;
+      margin: 0 auto 16px;
+    }
+    #canvas-container canvas { display: block; width: 100%; aspect-ratio: 1 / 1; border: 1px solid #eee; }
+    #controls-container { margin-top: 8px; }
+  </style>
+</head>
+<body class="collect-page">
+  <!-- Phase 1: Life history -->
+  <div id="phase1">
+    <h1>Tree of Your Life</h1>
+
+    <div class="form-group">
+      <label for="birth-year">Birth Year</label>
+      <input type="number" class="text-input" id="birth-year" placeholder="e.g. 1990" min="1900" max="2025" />
+    </div>
+
+    <div class="form-group">
+      <label for="birth-location">Birth Location</label>
+      <input type="text" class="text-input" id="birth-location" placeholder="Search for a city..." autocomplete="off" />
+      <div id="birth-location-results" class="hidden"></div>
+    </div>
+
+    <div id="table-section" class="hidden" style="margin-top:16px;">
+      <p style="font-size:12px;color:#666;margin-bottom:8px;">Tap a row to update the location for that year (and all following years with the same location).</p>
+      <table>
+        <thead><tr><th>Year (Age)</th><th>Location</th></tr></thead>
+        <tbody id="years-tbody"></tbody>
+      </table>
+    </div>
+
+    <button class="btn-primary" id="generate-btn" style="margin-top:16px;">Generate My Tree</button>
+    <div class="status-msg hidden" id="status"></div>
+  </div>
+
+  <!-- Phase 2: params + preview -->
+  <div id="phase2" style="display:none;">
+    <h1>Adjust Your Tree</h1>
+    <div id="canvas-container"></div>
+    <div id="controls-container"></div>
+    <input type="text" class="text-input" id="final-name-input" placeholder="Your name" autocomplete="off" style="margin-top:16px;" />
+    <button class="btn-primary" id="final-submit-btn">Save</button>
+    <div class="status-msg" id="final-status"></div>
+  </div>
+</body>
+</html>

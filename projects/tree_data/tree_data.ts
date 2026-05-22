@@ -1,0 +1,1297 @@
+export {};
+
+// Hard-coded CSV data
+const CSV_DATA = `ring_index,point_index,x,y
+0,0,1516.5,1121.5
+0,1,1517.75,1120.75
+0,2,1528.25,1126.75
+0,3,1529.5,1144.75
+0,4,1521.25,1150
+0,5,1506.75,1147
+0,6,1503.25,1136.5
+0,7,1509.5,1123.75
+1,0,1514.75,1099.75
+1,1,1500.5,1104.25
+1,2,1488.25,1119.5
+1,3,1484.25,1142.75
+1,4,1494.25,1158.5
+1,5,1517,1169.5
+1,6,1533.5,1167.5
+1,7,1543,1157
+1,8,1545.5,1147.5
+1,9,1548.75,1121
+1,10,1536.25,1106.25
+1,11,1528.5,1102.75
+2,0,1531.75,1079.75
+2,1,1554.25,1092.75
+2,2,1565.75,1114
+2,3,1570,1130.25
+2,4,1566,1152.25
+2,5,1555.5,1175.5
+2,6,1534.25,1188.25
+2,7,1501.75,1187.75
+2,8,1477.5,1172.5
+2,9,1466,1149.75
+2,10,1462,1120
+2,11,1471.5,1098.25
+2,12,1494.75,1081.5
+2,13,1521,1076.25
+3,0,1537,1048
+3,1,1561.75,1060.25
+3,2,1586,1083.5
+3,3,1594.75,1104.25
+3,4,1597,1126.5
+3,5,1595.75,1152
+3,6,1590,1174.5
+3,7,1572,1203.25
+3,8,1553,1214.25
+3,9,1527,1223
+3,10,1496.75,1223.25
+3,11,1477.75,1217.75
+3,12,1460.5,1209.5
+3,13,1437.5,1187
+3,14,1424,1152.75
+3,15,1427,1104.75
+3,16,1443.25,1075
+3,17,1479.75,1054
+3,18,1511.25,1044.75
+3,19,1533.25,1047.5
+4,0,1542.75,1013.25
+4,1,1582.5,1038.75
+4,2,1612.25,1070.75
+4,3,1625,1101.5
+4,4,1628.25,1148.75
+4,5,1618.5,1201.75
+4,6,1581,1244.5
+4,7,1553.75,1259.25
+4,8,1510.25,1269.5
+4,9,1419.25,1247.25
+4,10,1376,1205
+4,11,1357.1666,1163.8334
+4,12,1356.5,1111.5
+4,13,1384.1666,1059.8334
+4,14,1444.1666,1013.8333
+4,15,1504.1666,1003.8333
+4,16,1536.1666,1010.5
+5,0,1521.1666,979.8333
+5,1,1557.1666,985.5
+5,2,1599.8333,1011.5
+5,3,1636.1666,1050.5
+5,4,1655.1666,1101.8333
+5,5,1660.5,1139.5
+5,6,1654.5,1197.8333
+5,7,1637.5,1242.5
+5,8,1591.8333,1289.8333
+5,9,1540.5,1315.5
+5,10,1474.5,1314.1666
+5,11,1406.8333,1285.5
+5,12,1364.1666,1239.5
+5,13,1333.8333,1183.8333
+5,14,1326.5,1143.1666
+5,15,1329.5,1102.5
+5,16,1344.8333,1056.8333
+5,17,1385.5,1014.1666
+5,18,1413.8333,995.1666
+5,19,1440.1666,978.5
+5,20,1483.5,975.8333
+5,21,1519.1666,979.5
+6,0,1521.5,957.1667
+6,1,1558.8334,965.5
+6,2,1588.1666,977.1667
+6,3,1609.5,994.5
+6,4,1633.8334,1018.1667
+6,5,1664.1666,1062.5
+6,6,1682.1666,1108.5
+6,7,1689.1666,1140.8334
+6,8,1689.1666,1187.8334
+6,9,1674.1666,1233.1667
+6,10,1656.1666,1274.1667
+6,11,1631.1666,1304.1667
+6,12,1599.1666,1329.8334
+6,13,1564.5,1343.5
+6,14,1518.8334,1347.8334
+6,15,1472.5,1347.1667
+6,16,1433.1666,1331.8334
+6,17,1391.1666,1307.8334
+6,18,1333.5,1244.8334
+6,19,1299.5,1174.5
+6,20,1293.5,1142.8334
+6,21,1295.1666,1100.5
+6,22,1315.8334,1042.5
+6,23,1351.1666,1006.1667
+6,24,1400.8334,974.5
+6,25,1447.8334,959.5
+6,26,1492.1666,954.1667
+6,27,1516.5,955.8334
+7,0,1527.1666,927.5
+7,1,1576.8333,938.5
+7,2,1618.8333,959.8333
+7,3,1641.5,981.1667
+7,4,1680.1666,1027.5
+7,5,1712.1666,1099.5
+7,6,1719.5,1137.8334
+7,7,1718.1666,1205.5
+7,8,1696.1666,1279.8334
+7,9,1656.1666,1342.8334
+7,10,1606.1666,1381.5
+7,11,1569.1666,1395.1666
+7,12,1515.5,1396.8334
+7,13,1443.5,1392.8334
+7,14,1380.1666,1361.8334
+7,15,1310.1666,1294.8334
+7,16,1276.1666,1243.1666
+7,17,1248.5,1182.5
+7,18,1238.5,1122.5
+7,19,1254.5,1046.8334
+7,20,1294.8333,993.8333
+7,21,1356.1666,955.1667
+7,22,1422.1666,929.8333
+7,23,1490.8333,922.8333
+7,24,1518.5,925.8333
+8,0,1508.8334,910.5
+8,1,1572.1667,922.8333
+8,2,1618.8334,946.1667
+8,3,1686.8334,1013.1667
+8,4,1717.1667,1073.1666
+8,5,1734.5,1131.1666
+8,6,1735.8334,1204.1666
+8,7,1718.5,1271.1666
+8,8,1689.1667,1335.5
+8,9,1648.1667,1382.5
+8,10,1619.1667,1406.5
+8,11,1570.8334,1426.5
+8,12,1502.5,1432.8333
+8,13,1433.5,1422.5
+8,14,1389.1667,1397.1666
+8,15,1321.5,1332.1666
+8,16,1280.8334,1280.1666
+8,17,1241.5,1207.8334
+8,18,1225.1667,1138.1666
+8,19,1226.1667,1084.1666
+8,20,1239.1667,1030.5
+8,21,1273.1667,983.8333
+8,22,1317.5,950.5
+8,23,1378.8334,920.8333
+8,24,1431.5,908.1667
+8,25,1477.1667,906.5
+8,26,1500.8334,909.1667
+8,27,1501.1667,909.1667
+9,0,1509.8334,890.8333
+9,1,1574.5,904.8333
+9,2,1635.1667,934.5
+9,3,1711.5,1001.1666
+9,4,1742.8334,1066.1666
+9,5,1761.5,1150.8333
+9,6,1756.8334,1239.5
+9,7,1717.5,1338.8333
+9,8,1681.5,1384.8333
+9,9,1624.1667,1434.8333
+9,10,1554.8334,1457.5
+9,11,1470.1667,1458.1666
+9,12,1374.1667,1426.8333
+9,13,1324.5,1372.5
+9,14,1278.5,1323.5
+9,15,1240.5,1277.5
+9,16,1210.5,1219.5
+9,17,1190.5,1142.5
+9,18,1191.5,1073.5
+9,19,1218.5,1006.5
+9,20,1254.5,966.5
+9,21,1333.5,918.5
+9,22,1404.5,888.5
+9,23,1484.5,885.5
+9,24,1485.5,885.5
+10,0,1514,868
+10,1,1598,892
+10,2,1678,939
+10,3,1737,1000
+10,4,1765,1067
+10,5,1789,1147
+10,6,1785,1234
+10,7,1765,1313
+10,8,1733,1376
+10,9,1687,1436
+10,10,1623,1475
+10,11,1540,1492
+10,12,1421,1479
+10,13,1326,1424
+10,14,1266,1356
+10,15,1218,1285
+10,16,1175,1219
+10,17,1161,1162
+10,18,1155,1081
+10,19,1176,1003
+10,20,1230,935
+10,21,1289,902
+10,22,1352,874
+10,23,1412,857
+10,24,1454,861
+11,0,1475,842
+11,1,1566,859
+11,2,1643,887
+11,3,1695,927
+11,4,1735,959
+11,5,1773,1022
+11,6,1790,1074
+11,7,1808,1150
+11,8,1805,1234
+11,9,1790,1306
+11,10,1758,1376
+11,11,1710,1442
+11,12,1644,1491
+11,13,1568,1522
+11,14,1512,1526
+11,15,1433,1516
+11,16,1361,1489
+11,17,1287,1417
+11,18,1217,1346
+11,19,1164,1278
+11,20,1135,1227
+11,21,1116,1147
+11,22,1118,1062
+11,23,1138,996
+11,24,1185,936
+11,25,1244,892
+11,26,1297,870
+11,27,1383,839
+11,28,1408,836
+11,29,1468,841
+12,0,1409.5,802.5
+12,1,1515.5,816
+12,2,1581.5,830
+12,3,1651,861.5
+12,4,1708,895.5
+12,5,1758.5,943.5
+12,6,1791,991
+12,7,1817,1054
+12,8,1833,1110.5
+12,9,1839.5,1165
+12,10,1838,1225
+12,11,1827.5,1301.5
+12,12,1803,1363.5
+12,13,1772,1419.5
+12,14,1737,1466
+12,15,1685.5,1508.5
+12,16,1604,1552
+12,17,1548,1565.5
+12,18,1511,1572
+12,19,1455.5,1563
+12,20,1381,1542.5
+12,21,1336,1523.5
+12,22,1290.5,1494.5
+12,23,1237.5,1442.5
+12,24,1161,1363.5
+12,25,1108.1666,1293.8334
+12,26,1076.8334,1224.5
+12,27,1061.5,1151.8334
+12,28,1059.5,1076.5
+12,29,1077.5,1000.5
+12,30,1120.8334,935.1667
+12,31,1171.5,889.1667
+12,32,1239.5,852.5
+12,33,1308.8334,827.8333
+12,34,1391.5,803.1667
+13,0,1410,777
+13,1,1530,792
+13,2,1599,813
+13,3,1660,837
+13,4,1717,877
+13,5,1764,922
+13,6,1799,965
+13,7,1830,1031
+13,8,1852,1103
+13,9,1861,1149
+13,10,1862,1233
+13,11,1853,1290
+13,12,1830,1371
+13,13,1802,1426
+13,14,1758,1494
+13,15,1680,1557
+13,16,1625,1585
+13,17,1554,1605
+13,18,1483,1603
+13,19,1398,1583
+13,20,1304,1542
+13,21,1216,1479
+13,22,1151,1410
+13,23,1085,1331
+13,24,1035,1245
+13,25,1018,1191
+13,26,1010,1120
+13,27,1018,1039
+13,28,1050,962
+13,29,1101,903
+13,30,1170,852
+13,31,1247,813
+13,32,1364,781
+13,33,1393,775
+14,0,1412,747
+14,1,1509,759
+14,2,1592,778
+14,3,1658,807
+14,4,1734,859
+14,5,1790,911
+14,6,1826,959
+14,7,1852,1015
+14,8,1870,1070
+14,9,1883,1128
+14,10,1886,1214
+14,11,1872,1313
+14,12,1848,1387
+14,13,1824,1435
+14,14,1785,1492
+14,15,1736,1543
+14,16,1683,1586
+14,17,1646,1605
+14,18,1591,1621
+14,19,1531,1629
+14,20,1476,1629
+14,21,1410,1611
+14,22,1351,1590
+14,23,1296,1564
+14,24,1206,1508
+14,25,1142,1454
+14,26,1076,1387
+14,27,1024,1321
+14,28,984,1239
+14,29,969,1180
+14,30,966,1091
+14,31,984,1012
+14,32,1032,925
+14,33,1089,869
+14,34,1198,801
+14,35,1300,768
+14,36,1378,749
+14,37,1400,747
+15,0,1417,709
+15,1,1567,733
+15,2,1649,761
+15,3,1736,813
+15,4,1810,881
+15,5,1870,964
+15,6,1904,1055
+15,7,1921,1161
+15,8,1911,1275
+15,9,1890,1365
+15,10,1846,1465
+15,11,1784,1541
+15,12,1718,1598
+15,13,1651,1634
+15,14,1577,1655
+15,15,1507,1661
+15,16,1376,1631
+15,17,1280,1594
+15,18,1162,1534
+15,19,1086,1483
+15,20,1023,1416
+15,21,982,1363
+15,22,941,1257
+15,23,922,1172
+15,24,928,1049
+15,25,966,954
+15,26,1024,872
+15,27,1116,802
+15,28,1220,750
+15,29,1344,717
+15,30,1394,709
+16,0,1388,690
+16,1,1334,701
+16,2,1254,718
+16,3,1160,747
+16,4,1075,794
+16,5,1001,847
+16,6,953,918
+16,7,925,982
+16,8,910,1064
+16,9,905,1125
+16,10,910,1220
+16,11,948,1378
+16,12,984,1441
+16,13,1035,1506
+16,14,1111,1560
+16,15,1345,1636
+16,16,1406,1651
+16,17,1485,1669
+16,18,1555,1671
+16,19,1626,1657
+16,20,1713,1616
+16,21,1774,1570
+16,22,1832,1511
+16,23,1874,1448
+16,24,1906,1367
+16,25,1923,1288
+16,26,1938,1188
+16,27,1937,1106
+16,28,1912,1006
+16,29,1875,928
+16,30,1827,869
+16,31,1765,805
+16,32,1704,763
+16,33,1623,725
+16,34,1538,705
+16,35,1454,694
+16,36,1406,690
+16,37,1405,690
+17,0,1410,637
+17,1,1491,655
+17,2,1573,670
+17,3,1658,694
+17,4,1755,750
+17,5,1841,831
+17,6,1901,907
+17,7,1954,1031
+17,8,1973,1117
+17,9,1975,1229
+17,10,1954,1335
+17,11,1902,1463
+17,12,1870,1525
+17,13,1799,1599
+17,14,1730,1647
+17,15,1673,1678
+17,16,1589,1696
+17,17,1514,1702
+17,18,1417,1692
+17,19,1289,1666
+17,20,1172,1642
+17,21,1068,1610
+17,22,991,1545
+17,23,905,1450
+17,24,855,1361
+17,25,811,1251
+17,26,792,1156
+17,27,785,1048
+17,28,812,925
+17,29,863,840
+17,30,929,781
+17,31,1028,733
+17,32,1156,684
+17,33,1205,667
+17,34,1272,653
+17,35,1355,645
+17,36,1388,636
+18,0,1407,580
+18,1,1519,616
+18,2,1616,643
+18,3,1707,683
+18,4,1793,741
+18,5,1879,825
+18,6,1940,912
+18,7,1976,1004
+18,8,2009,1119
+18,9,2017,1263
+18,10,1993,1375
+18,11,1959,1468
+18,12,1888,1580
+18,13,1808,1656
+18,14,1708,1724
+18,15,1593,1759
+18,16,1467,1765
+18,17,1320,1744
+18,18,1187,1721
+18,19,1073,1707
+18,20,989,1668
+18,21,880,1576
+18,22,785,1459
+18,23,689,1287
+18,24,641,1156
+18,25,620,1045
+18,26,627,947
+18,27,656,847
+18,28,732,755
+18,29,820,711
+18,30,997,651
+18,31,1137,611
+18,32,1227,595
+18,33,1319,591
+18,34,1391,583
+19,0,1415,536
+19,1,1548,583
+19,2,1681,623
+19,3,1799,692
+19,4,1884,771
+19,5,1941,832
+19,6,1996,932
+19,7,2044,1061
+19,8,2063,1217
+19,9,2043,1343
+19,10,2000,1475
+19,11,1955,1556
+19,12,1877,1652
+19,13,1791,1724
+19,14,1727,1767
+19,15,1628,1796
+19,16,1532,1816
+19,17,1389,1811
+19,18,1232,1790
+19,19,1092,1778
+19,20,987,1752
+19,21,879,1686
+19,22,753,1554
+19,23,640,1395
+19,24,573,1253
+19,25,512,1112
+19,26,496,1007
+19,27,512,888
+19,28,558,777
+19,29,682,679
+19,30,797,631
+19,31,934,591
+19,32,1109,552
+19,33,1240,539
+19,34,1361,536
+20,0,1398,505
+20,1,1288,513
+20,2,1165,516
+20,3,1052,534
+20,4,944,558
+20,5,825,592
+20,6,726,626
+20,7,644,674
+20,8,576,730
+20,9,529,757
+20,10,498,817
+20,11,457,916
+20,12,454,960
+20,13,462,1012
+20,14,461,1060
+20,15,468,1102
+20,16,502,1204
+20,17,562,1337
+20,18,638,1468
+20,19,710,1564
+20,20,796,1644
+20,21,872,1709
+20,22,942,1758
+20,23,1014,1793
+20,24,1129,1812
+20,25,1313,1824
+20,26,1482,1836
+20,27,1559,1829
+20,28,1637,1815
+20,29,1730,1784
+20,30,1821,1723
+20,31,1884,1671
+20,32,1948,1602
+20,33,1989,1544
+20,34,2035,1448
+20,35,2064,1344
+20,36,2083,1251
+20,37,2079,1112
+20,38,2057,1011
+20,39,2012,908
+20,40,1962,821
+20,41,1881,738
+20,42,1787,659
+20,43,1714,611
+20,44,1596,568
+20,45,1545,555
+20,46,1417,507
+21,0,1418,465
+21,1,1458,481
+21,2,1522,507
+21,3,1611,541
+21,4,1718,580
+21,5,1796,631
+21,6,1860,686
+21,7,1924,744
+21,8,1968,800
+21,9,2014,872
+21,10,2051,945
+21,11,2074,1005
+21,12,2094,1071
+21,13,2101,1153
+21,14,2102,1216
+21,15,2092,1298
+21,16,2082,1348
+21,17,2048,1464
+21,18,2025,1507
+21,19,1993,1567
+21,20,1956,1620
+21,21,1912,1669
+21,22,1855,1716
+21,23,1813,1749
+21,24,1740,1795
+21,25,1680,1818
+21,26,1597,1840
+21,27,1497,1850
+21,28,1405,1849
+21,29,1324,1841
+21,30,1224,1834
+21,31,1135,1828
+21,32,1066,1824
+21,33,1017,1812
+21,34,927,1775
+21,35,855,1725
+21,36,778,1663
+21,37,709,1597
+21,38,647,1521
+21,39,576,1410
+21,40,502,1264
+21,41,467,1173
+21,42,460,1144
+21,43,436,1071
+21,44,440,1005
+21,45,433,925
+21,46,443,888
+21,47,464,856
+21,48,506,764
+21,49,525,742
+21,50,574,708
+21,51,661,642
+21,52,747,596
+21,53,840,562
+21,54,948,534
+21,55,1055,508
+21,56,1163,486
+21,57,1325,471
+21,58,1384,461
+22,0,1403,429
+22,1,1352,436
+22,2,1307,446
+22,3,1210,451
+22,4,1100,471
+22,5,983,501
+22,6,838,541
+22,7,753,574
+22,8,671,614
+22,9,621,656
+22,10,584,688
+22,11,540,717
+22,12,515,736
+22,13,492,765
+22,14,475,803
+22,15,445,862
+22,16,428,891
+22,17,422,920
+22,18,422,958
+22,19,426,1016
+22,20,423,1048
+22,21,425,1078
+22,22,440,1136
+22,23,451,1155
+22,24,459,1197
+22,25,492,1279
+22,26,519,1332
+22,27,549,1389
+22,28,586,1462
+22,29,622,1512
+22,30,662,1571
+22,31,728,1637
+22,32,815,1719
+22,33,888,1773
+22,34,952,1811
+22,35,1015,1831
+22,36,1087,1842
+22,37,1287,1854
+22,38,1352,1858
+22,39,1397,1862
+22,40,1442,1863
+22,41,1491,1865
+22,42,1595,1855
+22,43,1683,1832
+22,44,1751,1805
+22,45,1847,1747
+22,46,1948,1659
+22,47,2014,1574
+22,48,2054,1498
+22,49,2086,1413
+22,50,2108,1343
+22,51,2123,1240
+22,52,2127,1169
+22,53,2122,1075
+22,54,2100,1009
+22,55,2069,926
+22,56,2033,862
+22,57,2007,812
+22,58,1967,763
+22,59,1916,705
+22,60,1880,668
+22,61,1821,620
+22,62,1757,577
+22,63,1715,554
+22,64,1670,536
+22,65,1621,514
+22,66,1534,483
+22,67,1477,460
+22,68,1420,431
+23,0,1405,397
+23,1,1348,408
+23,2,1265,422
+23,3,1154,434
+23,4,1055,457
+23,5,967,482
+23,6,887,506
+23,7,838,524
+23,8,783,545
+23,9,736,567
+23,10,698,589
+23,11,650,616
+23,12,599,661
+23,13,558,694
+23,14,525,717
+23,15,505,733
+23,16,488,751
+23,17,472,783
+23,18,446,840
+23,19,428,876
+23,20,418,895
+23,21,414,919
+23,22,417,990
+23,23,418,1024
+23,24,415,1049
+23,25,418,1080
+23,26,424,1104
+23,27,435,1143
+23,28,443,1165
+23,29,457,1224
+23,30,508,1331
+23,31,549,1422
+23,32,576,1471
+23,33,623,1540
+23,34,694,1629
+23,35,748,1684
+23,36,817,1749
+23,37,913,1809
+23,38,981,1837
+23,39,1063,1853
+23,40,1239,1861
+23,41,1333,1866
+23,42,1384,1869
+23,43,1462,1872
+23,44,1539,1871
+23,45,1649,1849
+23,46,1740,1828
+23,47,1802,1797
+23,48,1869,1758
+23,49,1953,1682
+23,50,2021,1597
+23,51,2048,1553
+23,52,2071,1509
+23,53,2105,1419
+23,54,2131,1329
+23,55,2145,1253
+23,56,2151,1187
+23,57,2147,1086
+23,58,2141,1043
+23,59,2113,963
+23,60,2077,880
+23,61,2039,813
+23,62,1977,736
+23,63,1953,700
+23,64,1885,634
+23,65,1814,575
+23,66,1764,541
+23,67,1690,508
+23,68,1632,480
+23,69,1537,445
+23,70,1460,412
+23,71,1426,400`;
+
+interface Point {
+  x: number;
+  y: number;
+}
+
+interface PolarPoint {
+  r: number;      // radius
+  theta: number;  // angle in radians
+}
+
+interface Ring {
+  ringIndex: number;
+  points: Point[];
+}
+
+let canvas: HTMLCanvasElement;
+let ctx: CanvasRenderingContext2D;
+let polarCanvas: HTMLCanvasElement;
+let polarCtx: CanvasRenderingContext2D;
+let deltaCanvas: HTMLCanvasElement;
+let deltaCtx: CanvasRenderingContext2D;
+let isInitialized = false;
+let rings: Ring[] = [];
+let ring0Center: Point = { x: 0, y: 0 };
+let phaseShift: number = 0; // Phase shift in radians
+
+const CANVAS_WIDTH = 576;
+const CANVAS_HEIGHT = 576;
+const DELTA_CANVAS_WIDTH = 576;
+const DELTA_CANVAS_HEIGHT = 1200;
+const NUM_RINGS = 24; // rings 0-23
+
+function parseCSV(csvData: string): Ring[] {
+  const lines = csvData.trim().split('\n');
+  const ringMap: Map<number, Point[]> = new Map();
+
+  // Skip header line
+  for (let i = 1; i < lines.length; i++) {
+    const [ringIndex, pointIndex, x, y] = lines[i].split(',').map(Number);
+
+    if (!ringMap.has(ringIndex)) {
+      ringMap.set(ringIndex, []);
+    }
+
+    ringMap.get(ringIndex)!.push({ x, y });
+  }
+
+  // Convert to array
+  const result: Ring[] = [];
+  ringMap.forEach((points, ringIndex) => {
+    result.push({ ringIndex, points });
+  });
+
+  return result;
+}
+
+function calculateRing0Center(rings: Ring[]): Point {
+  const ring0 = rings.find(r => r.ringIndex === 0);
+  if (!ring0 || ring0.points.length === 0) {
+    return { x: 0, y: 0 };
+  }
+
+  let sumX = 0;
+  let sumY = 0;
+  ring0.points.forEach(p => {
+    sumX += p.x;
+    sumY += p.y;
+  });
+
+  return {
+    x: sumX / ring0.points.length,
+    y: sumY / ring0.points.length
+  };
+}
+
+function cartesianToPolar(point: Point, center: Point): PolarPoint {
+  const dx = point.x - center.x;
+  const dy = point.y - center.y;
+  const r = Math.sqrt(dx * dx + dy * dy);
+  const theta = Math.atan2(dy, dx);
+  return { r, theta };
+}
+
+function calculateBounds(rings: Ring[]): { minX: number; maxX: number; minY: number; maxY: number } {
+  let minX = Infinity;
+  let maxX = -Infinity;
+  let minY = Infinity;
+  let maxY = -Infinity;
+
+  rings.forEach(ring => {
+    ring.points.forEach(point => {
+      minX = Math.min(minX, point.x);
+      maxX = Math.max(maxX, point.x);
+      minY = Math.min(minY, point.y);
+      maxY = Math.max(maxY, point.y);
+    });
+  });
+
+  return { minX, maxX, minY, maxY };
+}
+
+function scalePoint(point: Point, bounds: any, targetBounds: any): Point {
+  const dataWidth = bounds.maxX - bounds.minX;
+  const dataHeight = bounds.maxY - bounds.minY;
+  const targetWidth = targetBounds.width;
+  const targetHeight = targetBounds.height;
+
+  // Calculate scale to fit while maintaining aspect ratio
+  const scale = Math.min(targetWidth / dataWidth, targetHeight / dataHeight);
+
+  // Calculate scaled dimensions
+  const scaledWidth = dataWidth * scale;
+  const scaledHeight = dataHeight * scale;
+
+  // Center the data in the target bounds
+  const offsetX = targetBounds.x + (targetWidth - scaledWidth) / 2;
+  const offsetY = targetBounds.y + (targetHeight - scaledHeight) / 2;
+
+  return {
+    x: offsetX + (point.x - bounds.minX) * scale,
+    y: offsetY + (point.y - bounds.minY) * scale
+  };
+}
+
+function initializeCanvasAndSVG() {
+  if (isInitialized) return;
+
+  const treeDataContainer = document.getElementById('tree_data-container');
+  const polarContainer = document.getElementById('polar-container');
+  const deltaContainer = document.getElementById('delta-container');
+
+  if (!treeDataContainer || !polarContainer || !deltaContainer) {
+    console.error('Containers not found');
+    return;
+  }
+
+  // Clear containers first
+  treeDataContainer.innerHTML = '';
+  polarContainer.innerHTML = '';
+  deltaContainer.innerHTML = '';
+
+  // Parse CSV data
+  rings = parseCSV(CSV_DATA);
+
+  // Calculate ring 0 center
+  ring0Center = calculateRing0Center(rings);
+
+  // Get device pixel ratio for high-DPI displays
+  const devicePixelRatio = window.devicePixelRatio || 1;
+
+  // Create cartesian canvas element
+  canvas = document.createElement('canvas');
+  canvas.style.width = CANVAS_WIDTH + 'px';
+  canvas.style.height = CANVAS_HEIGHT + 'px';
+  canvas.width = CANVAS_WIDTH * devicePixelRatio;
+  canvas.height = CANVAS_HEIGHT * devicePixelRatio;
+  ctx = canvas.getContext('2d')!;
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  treeDataContainer.appendChild(canvas);
+
+  // Create polar canvas element
+  polarCanvas = document.createElement('canvas');
+  polarCanvas.style.width = CANVAS_WIDTH + 'px';
+  polarCanvas.style.height = CANVAS_HEIGHT + 'px';
+  polarCanvas.width = CANVAS_WIDTH * devicePixelRatio;
+  polarCanvas.height = CANVAS_HEIGHT * devicePixelRatio;
+  polarCtx = polarCanvas.getContext('2d')!;
+  polarCtx.scale(devicePixelRatio, devicePixelRatio);
+  polarContainer.appendChild(polarCanvas);
+
+  // Create delta canvas element
+  deltaCanvas = document.createElement('canvas');
+  deltaCanvas.style.width = DELTA_CANVAS_WIDTH + 'px';
+  deltaCanvas.style.height = DELTA_CANVAS_HEIGHT + 'px';
+  deltaCanvas.width = DELTA_CANVAS_WIDTH * devicePixelRatio;
+  deltaCanvas.height = DELTA_CANVAS_HEIGHT * devicePixelRatio;
+  deltaCtx = deltaCanvas.getContext('2d')!;
+  deltaCtx.scale(devicePixelRatio, devicePixelRatio);
+  deltaContainer.appendChild(deltaCanvas);
+
+  // Draw initial rings on canvas
+  drawRingsOnCanvas();
+  drawPolarRingsOnCanvas();
+  drawDeltaCanvas();
+
+  // Setup controls
+  setupControls();
+
+  isInitialized = true;
+}
+
+function drawRingsOnCanvas() {
+  // Clear canvas completely
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  // Set canvas styles
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 2;
+  ctx.fillStyle = 'red';
+
+  // Define the drawing area
+  const targetBounds = {
+    x: 0,
+    y: 0,
+    width: CANVAS_WIDTH,
+    height: CANVAS_HEIGHT
+  };
+
+  // Calculate bounds of all points
+  const bounds = calculateBounds(rings);
+
+  // Draw each ring
+  rings.forEach(ring => {
+    if (ring.points.length === 0) return;
+
+    // Scale all points
+    const scaledPoints = ring.points.map(p => scalePoint(p, bounds, targetBounds));
+
+    // Draw lines connecting the points
+    ctx.beginPath();
+    ctx.moveTo(scaledPoints[0].x, scaledPoints[0].y);
+    for (let i = 1; i < scaledPoints.length; i++) {
+      ctx.lineTo(scaledPoints[i].x, scaledPoints[i].y);
+    }
+    ctx.stroke();
+  });
+}
+
+function normalizeTheta(theta: number): number {
+  // Normalize theta to [0, 2π)
+  const TWO_PI = 2 * Math.PI;
+  let normalized = theta % TWO_PI;
+  if (normalized < 0) {
+    normalized += TWO_PI;
+  }
+  return normalized;
+}
+
+function gaussian2D(x: number, y: number, sigma: number): number {
+  // 2D Gaussian function: z = (1 / (2π σ²)) * exp(-(x² + y²) / (2σ²))
+  const coefficient = 1 / (2 * Math.PI * sigma * sigma);
+  const exponent = -(x * x + y * y) / (2 * sigma * sigma);
+  return coefficient * Math.exp(exponent);
+}
+
+function drawPolarRingsOnCanvas() {
+  // Clear canvas completely
+  polarCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  // Set canvas styles
+  polarCtx.strokeStyle = 'black';
+  polarCtx.lineWidth = 2;
+  polarCtx.fillStyle = 'red';
+
+  // Convert all points to polar coordinates
+  interface PolarRing {
+    ringIndex: number;
+    polarPoints: PolarPoint[];
+  }
+
+  const polarRings: PolarRing[] = rings.map(ring => ({
+    ringIndex: ring.ringIndex,
+    polarPoints: ring.points.map(p => {
+      const polar = cartesianToPolar(p, ring0Center);
+      // Apply phase shift and normalize
+      return {
+        r: polar.r,
+        theta: normalizeTheta(polar.theta + phaseShift)
+      };
+    })
+  }));
+
+  // Sort each ring by theta
+  polarRings.forEach(ring => {
+    ring.polarPoints.sort((a, b) => a.theta - b.theta);
+  });
+
+  // Find bounds for polar data
+  let minR = Infinity;
+  let maxR = -Infinity;
+  let minTheta = Infinity;
+  let maxTheta = -Infinity;
+
+  polarRings.forEach(ring => {
+    ring.polarPoints.forEach(p => {
+      minR = Math.min(minR, p.r);
+      maxR = Math.max(maxR, p.r);
+      minTheta = Math.min(minTheta, p.theta);
+      maxTheta = Math.max(maxTheta, p.theta);
+    });
+  });
+
+  // Create scaling function for polar coordinates
+  const scaleR = (r: number): number => {
+    const range = maxR - minR;
+    if (range === 0) return CANVAS_HEIGHT / 2;
+    return CANVAS_HEIGHT - ((r - minR) / range) * CANVAS_HEIGHT;
+  };
+
+  const scaleTheta = (theta: number): number => {
+    const range = maxTheta - minTheta;
+    if (range === 0) return CANVAS_WIDTH / 2;
+    return ((theta - minTheta) / range) * CANVAS_WIDTH;
+  };
+
+  // Draw each ring in polar space
+  polarRings.forEach(ring => {
+    if (ring.polarPoints.length === 0) return;
+
+    // Draw lines connecting the points (but not first to last)
+    polarCtx.beginPath();
+    const firstPoint = ring.polarPoints[0];
+    polarCtx.moveTo(scaleTheta(firstPoint.theta), scaleR(firstPoint.r));
+
+    for (let i = 1; i < ring.polarPoints.length; i++) {
+      const p = ring.polarPoints[i];
+      polarCtx.lineTo(scaleTheta(p.theta), scaleR(p.r));
+    }
+    // Note: NOT connecting back to first point
+    polarCtx.stroke();
+  });
+}
+
+function setupControls() {
+  const controlsContainer = document.getElementById('controls-container');
+  if (!controlsContainer) return;
+
+  // Clear existing controls
+  controlsContainer.innerHTML = '';
+
+  // Phase shift slider
+  const phaseShiftContainer = document.createElement('div');
+  phaseShiftContainer.style.marginBottom = '20px';
+
+  const phaseShiftLabel = document.createElement('div');
+  phaseShiftLabel.textContent = 'Phase Shift';
+  phaseShiftLabel.style.marginBottom = '5px';
+  phaseShiftLabel.style.fontWeight = 'bold';
+  phaseShiftLabel.style.fontSize = '14px';
+
+  const phaseShiftSlider = document.createElement('input');
+  phaseShiftSlider.type = 'range';
+  phaseShiftSlider.min = '0';
+  phaseShiftSlider.max = String(2 * Math.PI);
+  phaseShiftSlider.step = '0.01';
+  phaseShiftSlider.value = '0';
+  phaseShiftSlider.style.width = '100%';
+  phaseShiftSlider.style.marginBottom = '5px';
+
+  const phaseShiftValue = document.createElement('div');
+  phaseShiftValue.textContent = '0.00 rad';
+  phaseShiftValue.style.textAlign = 'right';
+  phaseShiftValue.style.fontSize = '14px';
+
+  phaseShiftSlider.addEventListener('input', (e) => {
+    const target = e.target as HTMLInputElement;
+    phaseShift = parseFloat(target.value);
+    phaseShiftValue.textContent = phaseShift.toFixed(2) + ' rad';
+    drawPolarRingsOnCanvas();
+    drawDeltaCanvas();
+  });
+
+  phaseShiftContainer.appendChild(phaseShiftLabel);
+  phaseShiftContainer.appendChild(phaseShiftSlider);
+  phaseShiftContainer.appendChild(phaseShiftValue);
+  controlsContainer.appendChild(phaseShiftContainer);
+}
+
+function interpolateRadius(polarPoints: PolarPoint[], targetTheta: number): number {
+  // Find the two points that bracket targetTheta
+  if (polarPoints.length === 0) return 0;
+  if (polarPoints.length === 1) return polarPoints[0].r;
+
+  // Find the closest points before and after targetTheta
+  let before: PolarPoint | null = null;
+  let after: PolarPoint | null = null;
+
+  for (let i = 0; i < polarPoints.length; i++) {
+    const p = polarPoints[i];
+    if (p.theta <= targetTheta) {
+      if (!before || p.theta > before.theta) {
+        before = p;
+      }
+    }
+    if (p.theta >= targetTheta) {
+      if (!after || p.theta < after.theta) {
+        after = p;
+      }
+    }
+  }
+
+  // If we have both points, interpolate
+  if (before && after && before.theta !== after.theta) {
+    const t = (targetTheta - before.theta) / (after.theta - before.theta);
+    return before.r + t * (after.r - before.r);
+  }
+
+  // If we only have one side, use that value
+  if (before) return before.r;
+  if (after) return after.r;
+
+  // Fallback to first point
+  return polarPoints[0].r;
+}
+
+function drawDeltaCanvas() {
+  // Clear canvas
+  deltaCtx.clearRect(0, 0, DELTA_CANVAS_WIDTH, DELTA_CANVAS_HEIGHT);
+
+  // Convert all rings to polar and sort by theta
+  interface PolarRing {
+    ringIndex: number;
+    polarPoints: PolarPoint[];
+  }
+
+  const polarRings: PolarRing[] = rings.map(ring => {
+    const polarPoints = ring.points.map(p => {
+      const polar = cartesianToPolar(p, ring0Center);
+      return {
+        r: polar.r,
+        theta: normalizeTheta(polar.theta + phaseShift)
+      };
+    });
+    // Sort by theta
+    polarPoints.sort((a, b) => a.theta - b.theta);
+    return {
+      ringIndex: ring.ringIndex,
+      polarPoints
+    };
+  });
+
+  // Number of sample points for delta calculation
+  const numSamples = 200;
+  const deltaHeight = (DELTA_CANVAS_HEIGHT / (NUM_RINGS - 1)) * (2/3); // 23 deltas for 24 rings, 2/3 spacing
+
+  // For each consecutive pair of rings, calculate and draw delta
+  for (let ringIdx = 1; ringIdx < NUM_RINGS; ringIdx++) {
+    const currentRing = polarRings.find(r => r.ringIndex === ringIdx);
+    const previousRing = polarRings.find(r => r.ringIndex === ringIdx - 1);
+
+    if (!currentRing || !previousRing) continue;
+
+    const yOffset = (ringIdx - 1) * deltaHeight;
+    const baselineY = yOffset + deltaHeight / 2;
+
+    // Draw grey baseline
+    deltaCtx.strokeStyle = '#888888';
+    deltaCtx.lineWidth = 1;
+    deltaCtx.beginPath();
+    deltaCtx.moveTo(0, baselineY);
+    deltaCtx.lineTo(DELTA_CANVAS_WIDTH, baselineY);
+    deltaCtx.stroke();
+
+    // Draw text label showing ring number
+    deltaCtx.fillStyle = 'black';
+    deltaCtx.font = '12px Arial';
+    deltaCtx.textAlign = 'left';
+    deltaCtx.textBaseline = 'middle';
+    deltaCtx.fillText(`Ring ${ringIdx}`, 5, baselineY);
+
+    // Calculate deltas at regular theta intervals
+    const deltas: { theta: number; delta: number }[] = [];
+    for (let i = 0; i < numSamples; i++) {
+      const theta = (i / (numSamples - 1)) * 2 * Math.PI;
+      const rCurrent = interpolateRadius(currentRing.polarPoints, theta);
+      const rPrevious = interpolateRadius(previousRing.polarPoints, theta);
+      const delta = rCurrent - rPrevious;
+      deltas.push({ theta, delta });
+    }
+
+    // Find min/max delta for scaling
+    const minDelta = Math.min(...deltas.map(d => d.delta));
+    const maxDelta = Math.max(...deltas.map(d => d.delta));
+    const deltaRange = Math.max(Math.abs(minDelta), Math.abs(maxDelta));
+
+    // Scale factor to fit delta in available height (leaving some margin)
+    const scaleFactor = deltaRange > 0 ? (deltaHeight * 0.4) / deltaRange : 1;
+
+    // Draw delta curve
+    deltaCtx.strokeStyle = 'black';
+    deltaCtx.lineWidth = 1.5;
+    deltaCtx.beginPath();
+
+    for (let i = 0; i < deltas.length; i++) {
+      const x = (deltas[i].theta / (2 * Math.PI)) * DELTA_CANVAS_WIDTH;
+      const y = baselineY - (deltas[i].delta * scaleFactor);
+
+      if (i === 0) {
+        deltaCtx.moveTo(x, y);
+      } else {
+        deltaCtx.lineTo(x, y);
+      }
+    }
+    deltaCtx.stroke();
+  }
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  if (!isInitialized) {
+    initializeCanvasAndSVG();
+  }
+});
+
+// Handle case where DOM is already loaded
+if (document.readyState !== 'loading' && !isInitialized) {
+  initializeCanvasAndSVG();
+}

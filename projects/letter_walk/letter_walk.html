@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letter Walk</title>
+
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .svg-background {
+      position: relative;
+      display: inline-block;
+      width: 1056px;
+      height: 1344px;
+      background-color: rgb(245, 245, 245);
+    }
+
+    #controls-container {
+      width: 1056px;
+      padding: 20px 0;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    #controls-container input[type="range"] {
+      width: 100%;
+    }
+
+    #controls-container button {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    #controls-container button:hover {
+      background-color: #f0f0f0;
+    }
+
+    #saveSVG {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #saveSVG:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="svg-background">
+    <div id="letter-walk-container" style="position: relative; width: 1056px; height: 1344px;"></div>
+  </div>
+  <div id="controls-container"></div>
+
+</body>
+
+</html>

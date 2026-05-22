@@ -1,0 +1,161 @@
+/* Studio shared stylesheet — linked by all studio pages */
+
+* { box-sizing: border-box; }
+
+/* ===== BASE ===== */
+body { font-family: monospace; background: #fff; margin: 0; }
+h1 { font-size: 16px; font-weight: bold; margin-bottom: 24px; }
+label { display: block; font-size: 12px; margin-bottom: 4px; }
+input[type="range"] { width: 100%; }
+.hidden { display: none; }
+
+/* ===== COLLECT LAYOUT ===== */
+.collect-page { padding: 16px; }
+.collect-content { max-width: 576px; margin: 0 auto; }
+
+/* Canvas preview — collect pages */
+.canvas-wrap { width: 100%; max-width: 576px; margin: 0 auto 16px; }
+.canvas-wrap canvas { display: block; width: 100%; aspect-ratio: 1 / 1; border: 1px solid #eee; }
+
+/* ===== INPUTS ===== */
+.text-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: monospace;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+/* ===== BUTTONS ===== */
+/* Inline/small button — for seed row etc */
+.btn {
+  font-family: monospace;
+  cursor: pointer;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  padding: 8px 16px;
+  font-size: 13px;
+}
+/* Full-width primary action */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-family: monospace;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.btn-primary:disabled { background: #999; cursor: not-allowed; }
+/* Full-width secondary action */
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  font-family: monospace;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+/* ===== STATUS ===== */
+.status-msg { font-size: 13px; padding: 8px; min-height: 28px; }
+
+/* ===== RENDER LAYOUT ===== */
+.render-layout { display: flex; height: 100vh; overflow: hidden; }
+.render-canvas-panel {
+  width: 576px;
+  height: 100vh;
+  flex-shrink: 0;
+  border-right: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.render-canvas-container { width: 576px; height: 576px; position: relative; }
+.render-sidebar {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  max-height: 100vh;
+}
+/* Simpler two-column render (spiral, letters) */
+.render-two-col {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  height: 100vh;
+  overflow: hidden;
+}
+.render-canvas-fixed { width: 576px; height: 576px; flex-shrink: 0; }
+.render-controls {
+  width: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100vh;
+  min-width: 0;
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-header {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 2px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+/* ===== ENTRY LIST (render pages) ===== */
+.entry-list {
+  border: 1px solid #eee;
+  max-height: 280px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+.entry-item { padding: 8px 10px; border-bottom: 1px solid #eee; cursor: pointer; font-size: 12px; }
+.entry-item:hover { background: #f5f5f5; }
+.entry-item.selected { background: #000; color: #fff; }
+.entry-name { font-weight: bold; }
+.entry-ts { color: #888; font-size: 11px; display: block; margin-top: 2px; }
+.entry-item.selected .entry-ts { color: #ccc; }
+
+/* ===== LABELED SLIDER ROWS ===== */
+.slider-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.slider-row label { font-size: 12px; font-weight: bold; min-width: 130px; flex-shrink: 0; margin-bottom: 0; }
+.slider-row input[type="range"] { flex: 1; max-width: 100%; }
+.slider-row .val { font-size: 12px; min-width: 40px; text-align: right; flex-shrink: 0; }
+
+/* ===== LETTER / DIGIT PICKER ===== */
+.letter-picker { display: grid; grid-template-columns: repeat(9, 1fr); gap: 4px; margin-bottom: 16px; }
+.letter-picker button {
+  padding: 8px 2px;
+  font-size: 13px;
+  font-family: monospace;
+  background: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 100%;
+}
+.letter-picker button.selected { background: #000; color: #fff; border-color: #000; }
+
+/* ===== DRAW TIME ESTIMATE (letters) ===== */
+.draw-time { font-size: 13px; margin-bottom: 12px; padding: 8px; border: 1px solid #ccc; }
+.draw-time.warn { border-color: #c00; color: #c00; font-weight: bold; }
+
+/* ===== SEED ROW ===== */
+.seed-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; margin-top: 10px; flex-wrap: wrap; }

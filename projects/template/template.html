@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Template</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <style>
+    .main-container {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .svg-wrapper {
+      text-align: center;
+    }
+
+    .svg-background {
+      position: relative;
+      display: inline-block;
+      width: 576px;
+      height: 576px;
+      background-color: rgb(245, 245, 245);
+    }
+
+    #controls-container {
+      width: 400px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    #controls-container input[type="range"] {
+      width: 100%;
+    }
+
+    #controls-container button {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    #controls-container button:hover {
+      background-color: #f0f0f0;
+    }
+
+    #saveSVG {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    #saveSVG:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="main-container">
+    <div class="svg-wrapper">
+      <div class="svg-background">
+        <div id="template-container"></div>
+      </div>
+    </div>
+    <div id="controls-container"></div>
+  </div>
+
+  <nav>
+    <a href="/spiral">Spiral</a> | <a href="/letters">Letters</a> | <a href="/tree">Tree</a> | <a href="/template">Template</a> | <a href="/tree_data">Tree Data</a>
+  </nav>
+
+</body>
+
+</html>

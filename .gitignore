@@ -1,0 +1,40 @@
+# Dependencies & build output
+node_modules/
+dist/
+.cache
+
+# Environment & credentials
+.env
+treetimeline-*.json
+
+# OS
+.DS_Store
+
+# Editor
+.idea/
+
+# Old git directory
+old.git/
+
+# Visual companion brainstorm sessions
+.superpowers/
+
+# 3D model files
+*.obj
+*.stl
+*.blend
+*.blend1
+
+# High-res / non-web image formats
+*.tif
+*.tiff
+
+# Spreadsheets
+*.xlsx
+*.xls
+
+# Project-specific reference assets not needed for web
+le_basier_contour.jpg
+projects/tree/tree_ref.*
+projects/storm/storm_*.jpg
+projects/storm/storm_*.png

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letters — Collect</title>
+  <link rel="stylesheet" href="/studio_shared.css">
+  <style>
+    #controls-inner { margin-bottom: 8px; }
+    .seed-row .btn { flex: 1; text-align: center; }
+  </style>
+</head>
+<body class="collect-page">
+  <div class="collect-content">
+    <div class="letter-picker" id="letter-picker"></div>
+    <div class="canvas-wrap" id="canvas-container"></div>
+    <div id="controls-inner"></div>
+    <div class="draw-time" id="draw-time"></div>
+    <div class="seed-row">
+      <button class="btn" id="new-seed-btn">New Random Seed</button>
+      <button class="btn" id="randomize-btn">Randomize All</button>
+    </div>
+    <input type="text" class="text-input" id="name-input" placeholder="Your name" autocomplete="off">
+    <button class="btn-primary" id="submit-btn">Save</button>
+    <div class="status-msg" id="status"></div>
+  </div>
+</body>
+</html>
