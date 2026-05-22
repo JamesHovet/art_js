@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google Maps 3D Tiles Debug</title><link rel="stylesheet" href="css/style.css"><style>* {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #canvas-parent {
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+    }
+    #guide {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      padding: 1rem 2rem;
+      font-family:'Courier New', Courier, monospace;
+      line-height: 1.2;
+      background-color: white;
+      color: black;
+    }
+
+    #guide p {
+      margin-top: 10px;
+    }
+    #stats-widget  {
+      position: fixed;
+      top: 70px;
+      padding: 10px;
+    }
+    #stats-widget div {
+      width: 300px;
+      word-break: break-all;
+    }
+    #button {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      padding: 12px;
+      border-radius: 50%;
+      margin-bottom: 0px;
+      background-color: #FFF;
+      opacity: .9;
+      z-index: 999;
+      box-shadow: 0 0 4px rgb(0 0 0 / 15%);
+    }
+    @media (max-width:480px) {
+      #guide, #stats-widget { display: none; }
+    }
+
+    #data-attribution {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 10px;
+      font-size: 14px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+    }</style><script defer="defer" src=".././js/tiles.js"></script></head><body><div id="canvas-parent"></div><div id="stats-widget"></div><div id="data-attribution" style="display: none">Data attribution: <span id="copyright"></span></div></body></html>

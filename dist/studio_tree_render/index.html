@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Tree of Your Life — Render</title><link rel="stylesheet" href="/studio_shared.css"><style>#top-bar {
+      padding: 10px 16px;
+      border-bottom: 1px solid #000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    #top-bar h1 { font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.05em; }
+    #right-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    #controls-container { flex: 1; }</style><script defer="defer" src=".././js/studio_tree_render.js"></script></head><body class="render-layout"><div class="render-canvas-panel"><div class="render-canvas-container" id="canvas-container"></div></div><div id="right-panel"><div id="top-bar"><h1>Tree Render</h1><button class="btn" id="load-btn">Load Entries</button> <button class="btn" id="export-btn" style="background:#000;color:#fff;">Export SVG</button></div><div class="render-sidebar"><div id="entries-list"></div><div id="controls-container"></div></div></div></body></html>

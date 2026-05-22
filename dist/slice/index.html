@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Messy</title><link rel="stylesheet" href="css/style.css"><style>.main-container {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 20px;
+    }
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    .svg-wrapper {
+      text-align: center;
+    }
+    .svg-background {
+      position: relative;
+      display: inline-block;
+      width: 576px;
+      height: 576px;
+      background-color: rgb(245, 245, 245);
+    }
+    .threejs-wrapper {
+      text-align: center;
+    }
+    .threejs-background {
+      position: relative;
+      display: inline-block;
+      width: 576px;
+      height: 576px;
+      background-color: rgb(240, 240, 240);
+      border: 1px solid #ccc;
+    }
+    #threejs-container {
+      width: 100%;
+      height: 100%;
+    }
+    #controls-container {
+      width: 250px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+    }
+    .control-group {
+      margin-bottom: 15px;
+    }
+    .control-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    .control-group input[type="range"] {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .control-group .value-display {
+      font-size: 12px;
+      color: #666;
+      text-align: right;
+    }
+    #controls-container button {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    #controls-container button:hover {
+      background-color: #f0f0f0;
+    }
+    #saveSVG {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+    }
+    #saveSVG:hover {
+      background-color: #0056b3;
+    }</style><script defer="defer" src=".././js/slice.js"></script></head><body><div class="main-container"><div class="content-wrapper"><div class="svg-wrapper"><div class="svg-background"><div id="slice-container"></div></div></div><div class="threejs-wrapper"><div class="threejs-background"><div id="threejs-container"></div></div></div><button id="align-camera-x" style="margin-top: 10px; padding: 8px 16px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Align Camera to X-Axis</button></div><div id="controls-container"><h3>Object Controls</h3><div class="control-group"><label for="object-rotation-x">Rotation X</label> <input type="range" id="object-rotation-x" min="-180" max="180" value="0" step="0.1"> <input type="number" id="object-rotation-x-input" value="90" step="0.1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="object-rotation-x-value">90°</div></div><div class="control-group"><label for="object-rotation-y">Rotation Y</label> <input type="range" id="object-rotation-y" min="-180" max="180" value="0" step="0.1"> <input type="number" id="object-rotation-y-input" value="0" step="0.1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="object-rotation-y-value">0°</div></div><div class="control-group"><label for="object-rotation-z">Rotation Z</label> <input type="range" id="object-rotation-z" min="-180" max="180" value="0" step="0.1"> <input type="number" id="object-rotation-z-input" value="0" step="0.1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="object-rotation-z-value">0°</div></div><div class="control-group"><label for="object-translation-x">Translation X</label> <input type="range" id="object-translation-x" min="-200" max="200" value="0" step="0.1"> <input type="number" id="object-translation-x-input" value="0" step="0.01" style="width: 80px; margin-left: 5px;"><div class="value-display" id="object-translation-x-value">0</div></div><div class="control-group"><label for="object-translation-y">Translation Y</label> <input type="range" id="object-translation-y" min="-200" max="200" value="0" step="0.1"> <input type="number" id="object-translation-y-input" value="0" step="0.01" style="width: 80px; margin-left: 5px;"><div class="value-display" id="object-translation-y-value">0</div></div><div class="control-group"><label for="object-scale">Scale</label> <input type="range" id="object-scale" min="0.1" max="10" value="3.25" step="0.01"> <input type="number" id="object-scale-input" value="3.25" step="0.0001" style="width: 80px; margin-left: 5px;"><div class="value-display" id="object-scale-value">0.0066</div></div><h3>Plane Controls</h3><div class="control-group"><label for="plane-z-height">Z Height</label> <input type="range" id="plane-z-height" min="-3" max="12" value="2" step="0.01"> <input type="number" id="plane-z-height-input" value="2" step="0.01" style="width: 80px; margin-left: 5px;"><div class="value-display" id="plane-z-height-value">2</div></div><h3>Slice Options</h3><div class="control-group"><label for="num-slices">Number of Slices</label> <input type="range" id="num-slices" min="2" max="200" value="5" step="1"> <input type="number" id="num-slices-input" value="5" step="1" min="1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="num-slices-value">5</div></div><div class="control-group"><label for="slice-depth">Slice Depth</label> <input type="range" id="slice-depth" min="0.1" max="18" value="1.5" step="0.01"> <input type="number" id="slice-depth-input" value="1.5" step="0.01" min="0" style="width: 80px; margin-left: 5px;"><div class="value-display" id="slice-depth-value">1.5</div></div><div class="control-group"><label for="bottom-screen-y">Bottom Screen Y (ratio)</label> <input type="range" id="bottom-screen-y" min="0" max="1" value="0.9" step="0.01"> <input type="number" id="bottom-screen-y-input" value="0.9" step="0.01" min="0" max="1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="bottom-screen-y-value">0.9</div></div><div class="control-group"><label for="top-screen-y">Top Screen Y (ratio)</label> <input type="range" id="top-screen-y" min="0" max="1" value="0.1" step="0.01"> <input type="number" id="top-screen-y-input" value="0.1" step="0.01" min="0" max="1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="top-screen-y-value">0.1</div></div><div class="control-group"><label for="left-screen-x">Left Screen X (ratio)</label> <input type="range" id="left-screen-x" min="0" max="1" value="0.1" step="0.01"> <input type="number" id="left-screen-x-input" value="0.1" step="0.01" min="0" max="1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="left-screen-x-value">0.1</div></div><div class="control-group"><label for="right-screen-x">Right Screen X (ratio)</label> <input type="range" id="right-screen-x" min="0" max="1" value="0.9" step="0.01"> <input type="number" id="right-screen-x-input" value="0.9" step="0.01" min="0" max="1" style="width: 80px; margin-left: 5px;"><div class="value-display" id="right-screen-x-value">0.9</div></div><h3>Display Options</h3><div class="control-group"><label><input type="checkbox" id="show-wireframe"> Show Wireframe</label></div><div class="control-group"><label><input type="checkbox" id="color-fill" checked="checked"> Color Fill</label></div><button id="redraw-svg">Redraw SVG</button> <button id="saveSVG">Save SVG</button></div></div><nav><a href="/spiral">Spiral</a> | <a href="/letters">Letters</a> | <a href="/messy">Messy</a></nav></body></html>

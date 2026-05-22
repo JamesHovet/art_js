@@ -1,0 +1,169 @@
+<!doctype html><html class="no-js" lang=""><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Weather Timeline</title><meta name="description" content=""><style>* {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .input-section {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .search-results {
+      border: 1px solid #ddd;
+      border-top: none;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: white;
+    }
+
+    .search-result-item {
+      padding: 12px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+    }
+
+    .search-result-item:hover {
+      background-color: #f5f5f5;
+    }
+
+    .search-result-item small {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .search-loading {
+      padding: 12px;
+      color: #666;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    #years-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+
+    #years-table th {
+      background-color: #f5f5f5;
+      padding: 12px 8px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    #years-table td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    .location-cell {
+      cursor: pointer;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .location-cell:hover {
+      background-color: #f9f9f9;
+    }
+
+    .inline-search {
+      width: 100%;
+      padding: 8px;
+      border: 2px solid #007bff;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    #submit-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 24px;
+    }
+
+    #submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    #submit-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #output-section {
+      margin-top: 24px;
+    }
+
+    #success-message {
+      padding: 16px;
+      border-radius: 4px;
+      font-size: 16px;
+      text-align: center;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #status {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    #status.info {
+      background-color: #d1ecf1;
+      color: #0c5460;
+    }
+
+    #status.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }</style><script defer="defer" src=".././js/tree_timeline.js"></script></head><body><div class="container"><h1>Tree of Your Life</h1><div class="input-section"><label for="user-name">Your Name:</label> <input id="user-name" placeholder="e.g., John Doe"></div><div class="input-section"><label for="birth-year">Birth Year:</label> <input type="number" id="birth-year" placeholder="e.g., 1990" min="1900" max="2025"></div><div class="input-section"><label for="birth-location">Birth Location:</label> <input id="birth-location" placeholder="Search for a place..."><div id="birth-location-results" class="search-results hidden"></div></div><div id="table-section" class="hidden"><p style="color: #666; font-size: 14px; margin-bottom: 12px;">Click any location to change it for that year and all following years.</p><table id="years-table"><thead><tr><th style="width: 120px;">Year (Age)</th><th>Location</th></tr></thead><tbody id="years-tbody"></tbody></table><button id="submit-btn">Submit</button><div id="status" class="hidden"></div></div><div id="output-section" class="hidden"><div id="success-message"></div></div></div></body></html>

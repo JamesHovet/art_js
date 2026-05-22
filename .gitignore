@@ -1,6 +1,5 @@
 # Dependencies & build output
 node_modules/
-dist/
 .cache
 
 # Environment & credentials
@@ -22,6 +21,7 @@ old.git/
 # 3D model files
 *.obj
 *.stl
+*.mtl
 *.blend
 *.blend1
 

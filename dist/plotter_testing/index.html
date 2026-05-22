@@ -1,0 +1,98 @@
+<!doctype html><html class="no-js" lang=""><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plotter Testing</title><link rel="stylesheet" href="css/style.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#fafafa"><script src="/vendor/p5.axidraw.js"></script><style>.main-container {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .canvas-wrapper {
+      text-align: center;
+    }
+
+    .canvas-background {
+      position: relative;
+      display: inline-block;
+      width: 300px;
+      height: 300px;
+      background-color: rgb(245, 245, 245);
+    }
+
+    .canvas-label {
+      font-size: 11px;
+      color: #999;
+      margin-top: 4px;
+      font-family: monospace;
+    }
+
+    #controls-container {
+      width: 300px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    #controls-container h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+
+    #controls-container p {
+      font-size: 13px;
+      color: #555;
+      margin: 0 0 16px;
+      line-height: 1.5;
+    }
+
+    #controls-container button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    #controls-container button:hover:not(:disabled) {
+      filter: brightness(0.95);
+    }
+
+    #controls-container button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    #connect-btn {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+    }
+
+    #draw-btn {
+      background-color: #16a34a;
+      color: white;
+      border: none;
+    }
+
+    #status {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.4;
+      min-height: 20px;
+    }
+
+    .warning {
+      font-size: 12px;
+      color: #92400e;
+      background-color: #fef3c7;
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-top: 16px;
+      line-height: 1.5;
+    }</style><script defer="defer" src=".././js/plotter_testing.js"></script></head><body><div class="main-container"><div class="canvas-wrapper"><div class="canvas-background"><div id="plotter_testing-container"></div></div><div class="canvas-label">Preview &mdash; 2px = 1mm (150mm &times; 150mm shown)</div></div><div id="controls-container"><h3>Plotter Testing</h3><p>Draws a horizontal line from (10,&nbsp;10) to (80,&nbsp;10)&nbsp;mm. Requires Chrome or Edge with WebSerial support.</p><button id="connect-btn">Connect to AxiDraw</button> <button id="draw-btn" disabled="disabled">Draw Line</button><div id="status">Not connected.</div><div class="warning">Make sure the plotter head is at the home position (0, 0) before connecting.</div></div></div><nav><a href="/spiral">Spiral</a> | <a href="/letters">Letters</a> | <a href="/tree">Tree</a> | <a href="/template">Template</a></nav></body></html>
