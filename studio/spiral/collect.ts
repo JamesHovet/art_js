@@ -105,7 +105,7 @@ function setupSubmit(): void {
     statusEl.textContent = 'Saving…';
     try {
       await saveEntry('Spiral', name, currentParams);
-      statusEl.textContent = 'Saved. Talk to James to print it.';
+      statusEl.innerHTML = 'Saved. Talk to James to print it.<br><span style="font-size:12px;">The prints are free, but you can <a href="https://venmo.com/JamesHovet" target="_blank" rel="noopener noreferrer">venmo me at @JamesHovet</a> if you want to pay a few bucks.</span>';
     } catch {
       statusEl.textContent = 'Something went wrong. Please try again.';
     } finally {

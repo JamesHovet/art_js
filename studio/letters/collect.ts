@@ -189,7 +189,7 @@ function setupSubmit(): void {
     status.style.color = '#555';
     try {
       await saveEntry('Letters', name, currentParams);
-      status.textContent = 'Saved. Talk to James to print it.';
+      status.innerHTML = 'Saved. Talk to James to print it.<br><span style="font-size:12px;">The prints are free, but you can <a href="https://venmo.com/JamesHovet" target="_blank" rel="noopener noreferrer">venmo me at @JamesHovet</a> if you want to pay a few bucks.</span>';
       status.style.color = '#060';
     } catch (err) {
       status.textContent = 'Something went wrong. Please try again.';
