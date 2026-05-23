@@ -12,9 +12,9 @@ export interface LettersParams {
 }
 
 export const PARAM_CONFIG = {
-  numLines:       { default: 3000, min: 1500, max: 7000,   step: 100  },
-  lineLength:     { default: 5,    min: 1,    max: 15,      step: 0.05 },
-  gaussianStdDev: { default: 0.3,  min: 0.1,  max: 1.0,    step: 0.01 },
+  numLines:       { default: 3000, min: 1500, max: 15000,   step: 50  },
+  lineLength:     { default: 5,    min: 1,    max: 15,      step: 0.025 },
+  gaussianStdDev: { default: 0.3,  min: 0.1,  max: 1.0,    step: 0.005 },
   seed:           { default: 42,   min: 0,    max: 999999,  step: 1    },
 };
 

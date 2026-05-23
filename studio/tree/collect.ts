@@ -4,6 +4,7 @@ import { fetchWeatherApi } from 'openmeteo';
 import { PARAM_CONFIG, TreeParams, WeatherDataPoint, draw, CANVAS_WIDTH, CANVAS_HEIGHT } from './drawing';
 import { saveEntry } from '../shared/sheets';
 import { buildTextGroup } from '../shared/svgLabels';
+import { TREE_DESCRIPTION, renderDescription } from '../shared/descriptions';
 
 // ===== INTERFACES =====
 
@@ -264,7 +265,7 @@ function getColorForLocation(location: GeocodingResult): string {
 function generateYearsTable() {
   if (!birthYear || !birthLocation) return;
 
-  const currentYear = 2025;
+  const currentYear = 2026;
   yearLocations = [];
 
   for (let year = birthYear; year <= currentYear; year++) {
@@ -842,6 +843,7 @@ async function generateWeatherDataAndShowPhase2() {
 // ===== INITIALIZATION =====
 
 document.addEventListener('DOMContentLoaded', () => {
+  renderDescription(TREE_DESCRIPTION, document.getElementById('piece-description')!);
   const birthYearInput = document.getElementById('birth-year') as HTMLInputElement;
   const birthLocationInput = document.getElementById('birth-location') as HTMLInputElement;
   const birthLocationResults = document.getElementById('birth-location-results');
@@ -852,7 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (birthYearInput) {
     birthYearInput.addEventListener('change', (e) => {
       const year = parseInt((e.target as HTMLInputElement).value, 10);
-      if (year >= 1900 && year <= 2025) {
+      if (year >= 1900 && year <= 2026) {
         birthYear = year;
         if (birthLocation) generateYearsTable();
       }
@@ -897,7 +899,7 @@ document.addEventListener('DOMContentLoaded', () => {
       finalStatus.textContent = 'Saving...';
       try {
         await saveEntry('Tree', name, { params: currentParams, weatherData: currentWeatherData });
-        finalStatus.textContent = 'Saved! Thank you, ' + name + '.';
+        finalStatus.textContent = 'Saved. Talk to James to print it.';
       } catch (e) {
         finalStatus.textContent = 'Something went wrong. Please try again.';
       } finally {

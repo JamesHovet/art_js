@@ -2,6 +2,7 @@ export {};
 
 import { PARAM_CONFIG, SpiralParams, draw, drawBorder, CANVAS_WIDTH, CANVAS_HEIGHT } from './drawing';
 import { saveEntry } from '../shared/sheets';
+import { SPIRAL_DESCRIPTION, renderDescription } from '../shared/descriptions';
 
 let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
@@ -104,7 +105,7 @@ function setupSubmit(): void {
     statusEl.textContent = 'Saving…';
     try {
       await saveEntry('Spiral', name, currentParams);
-      statusEl.textContent = `Saved! Thank you, ${name}.`;
+      statusEl.textContent = 'Saved. Talk to James to print it.';
     } catch {
       statusEl.textContent = 'Something went wrong. Please try again.';
     } finally {
@@ -114,6 +115,7 @@ function setupSubmit(): void {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  renderDescription(SPIRAL_DESCRIPTION, document.getElementById('piece-description')!);
   initCanvas();
   buildSliders();
   setupSubmit();

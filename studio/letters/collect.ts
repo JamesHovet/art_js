@@ -2,6 +2,7 @@ export {};
 
 import { draw, CANVAS_WIDTH, CANVAS_HEIGHT, PARAM_CONFIG, LettersParams } from './drawing';
 import { saveEntry } from '../shared/sheets';
+import { LETTERS_DESCRIPTION, renderDescription } from '../shared/descriptions';
 
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('');
 
@@ -188,7 +189,7 @@ function setupSubmit(): void {
     status.style.color = '#555';
     try {
       await saveEntry('Letters', name, currentParams);
-      status.textContent = 'Saved! Your letter walk has been recorded.';
+      status.textContent = 'Saved. Talk to James to print it.';
       status.style.color = '#060';
     } catch (err) {
       status.textContent = 'Something went wrong. Please try again.';
@@ -200,6 +201,7 @@ function setupSubmit(): void {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
+  renderDescription(LETTERS_DESCRIPTION, document.getElementById('piece-description')!);
   initCanvas();
   buildLetterPicker();
   buildSliders();

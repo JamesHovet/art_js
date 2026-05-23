@@ -1,4 +1,76 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Studio</title><link rel="stylesheet" href="../studio_shared.css"><style>body { max-width: 480px; margin: 48px auto; padding: 0 24px; }
-    h2 { font-size: 13px; font-weight: bold; margin: 28px 0 8px; border-bottom: 1px solid #ccc; padding-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
-    a { display: block; margin: 6px 0; color: #000; text-decoration: none; font-size: 14px; }
-    a:hover { text-decoration: underline; }</style><script defer="defer" src=".././js/studio_landing.js"></script></head><body><h1>Studio</h1><h2>Spiral</h2><a href="../studio_spiral_collect/">Collect</a><h2>Letters</h2><a href="../studio_letters_collect/">Collect</a><h2>Tree</h2><a href="../studio_tree_collect/">Collect</a></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>James Hovet — Studio</title><link rel="stylesheet" href="../studio_shared.css"><style>body {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 40px 20px 56px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 9vw, 42px);
+      font-weight: bold;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #555;
+      margin: 0 0 8px;
+    }
+
+    .artwork-section {
+      margin-bottom: 0;
+    }
+
+    .artwork-link {
+      display: block;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .artwork-link:hover .artwork-title {
+      text-decoration: underline;
+    }
+
+    .artwork-title {
+      font-size: 22px;
+      font-weight: bold;
+      font-family: monospace;
+      margin: 20px 0 12px;
+    }
+
+    .artwork-description {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #555;
+      margin: 0 0 16px;
+    }
+
+    .artwork-preview {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .artwork-preview svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .landing-footer {
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 1px solid #ccc;
+    }
+
+    .instagram-link {
+      color: #000;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .instagram-link:hover {
+      text-decoration: underline;
+    }</style><script defer="defer" src=".././js/studio_landing.js"></script></head><body><h1>James Hovet</h1><p class="subtitle">Choose a procedural artwork. Customize it. Save it. Watch the machine draw it.</p><section class="artwork-section"><a href="../studio_tree_collect/" class="artwork-link"><h2 class="artwork-title">The Tree of Your Life</h2><div class="artwork-preview"><svg id="tree-svg" viewBox="0 0 576 576" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="25" width="526" height="526" fill="none" stroke="black" stroke-width="1"/><g id="tree-rings"></g></svg></div><div id="tree-desc"></div></a></section><section class="artwork-section"><a href="../studio_letters_collect/" class="artwork-link"><h2 class="artwork-title">Rambling Letters</h2><div class="artwork-preview"><svg id="letters-svg" viewBox="0 0 576 576" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="25" width="526" height="526" fill="none" stroke="black" stroke-width="1"/><path id="letters-path" fill="none" stroke="black" stroke-width="1"/></svg></div><div id="letters-desc"></div></a></section><section class="artwork-section"><a href="../studio_spiral_collect/" class="artwork-link"><h2 class="artwork-title">Thought Spirals</h2><div class="artwork-preview"><svg id="spiral-svg" viewBox="0 0 576 576" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="25" width="526" height="526" fill="none" stroke="black" stroke-width="1"/><path id="spiral-path" fill="none" stroke="black" stroke-width="1"/></svg></div><div id="spiral-desc"></div></a></section><footer class="landing-footer"><a href="https://www.instagram.com/jameshovetart" target="_blank" rel="noopener noreferrer" class="instagram-link">@jameshovetart</a></footer></body></html>
