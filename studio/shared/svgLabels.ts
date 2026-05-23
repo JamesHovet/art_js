@@ -5,10 +5,13 @@ export function buildTextGroup(
   text: string,
   x: number,
   y: number,
-  scale = 0.2
+  scale = 0.2,
+  rightAlign = false
 ): void {
+  const numChars = text.toUpperCase().split('').filter(c => c !== ' ').length;
+  const adjustedX = rightAlign ? x - numChars * 90 * scale : x;
   const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  g.setAttribute('transform', `translate(${x}, ${y}) scale(${scale})`);
+  g.setAttribute('transform', `translate(${adjustedX}, ${y}) scale(${scale})`);
   const spacing = 90;
   text.toUpperCase().split('').forEach((ch, i) => {
     if (ch === ' ') return;

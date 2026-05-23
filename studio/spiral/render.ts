@@ -197,6 +197,14 @@ function exportSVG(): void {
   svg.setAttribute('height', CANVAS_HEIGHT.toString());
   svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
+  // Spiral path
+  const spiralPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  spiralPath.setAttribute('d', buildSVGPath(currentParams));
+  spiralPath.setAttribute('fill', 'none');
+  spiralPath.setAttribute('stroke', 'black');
+  spiralPath.setAttribute('stroke-width', '0.5');
+  svg.appendChild(spiralPath);
+
   // Border rect
   const borderRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
   borderRect.setAttribute('x', '25');
@@ -208,14 +216,6 @@ function exportSVG(): void {
   borderRect.setAttribute('stroke-width', '1');
   svg.appendChild(borderRect);
 
-  // Spiral path
-  const spiralPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  spiralPath.setAttribute('d', buildSVGPath(currentParams));
-  spiralPath.setAttribute('fill', 'none');
-  spiralPath.setAttribute('stroke', 'black');
-  spiralPath.setAttribute('stroke-width', '0.5');
-  svg.appendChild(spiralPath);
-
   // Name label bottom-left
   const name = currentName || 'unknown';
   buildTextGroup(svg, name, 23.5, CANVAS_HEIGHT - 15);
@@ -223,7 +223,7 @@ function exportSVG(): void {
   // Year label bottom-right: extract 4-digit year from entry timestamp, or current year
   const yearMatch = currentTimestamp.match(/(\d{4})/);
   const year = yearMatch ? yearMatch[1] : String(new Date().getFullYear());
-  buildTextGroup(svg, year, 450, CANVAS_HEIGHT - 15);
+  buildTextGroup(svg, year, 551, CANVAS_HEIGHT - 15, 0.2, true);
 
   // Download
   const svgData = new XMLSerializer().serializeToString(svg);

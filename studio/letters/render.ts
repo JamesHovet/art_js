@@ -251,17 +251,6 @@ function exportSVG(): void {
   svg.setAttribute('height', String(CANVAS_HEIGHT));
   svg.setAttribute('viewBox', '0 0 ' + CANVAS_WIDTH + ' ' + CANVAS_HEIGHT);
 
-  // Border rect
-  const rect = document.createElementNS(svgNS, 'rect');
-  rect.setAttribute('x', '25');
-  rect.setAttribute('y', '25');
-  rect.setAttribute('width', String(CANVAS_WIDTH - 50));
-  rect.setAttribute('height', String(CANVAS_HEIGHT - 75));
-  rect.setAttribute('fill', 'none');
-  rect.setAttribute('stroke', 'black');
-  rect.setAttribute('stroke-width', '1');
-  svg.appendChild(rect);
-
   // Walk path
   const pathData = buildSVGPath(currentParams);
   if (pathData) {
@@ -273,6 +262,17 @@ function exportSVG(): void {
     svg.appendChild(pathEl);
   }
 
+  // Border rect
+  const rect = document.createElementNS(svgNS, 'rect');
+  rect.setAttribute('x', '25');
+  rect.setAttribute('y', '25');
+  rect.setAttribute('width', String(CANVAS_WIDTH - 50));
+  rect.setAttribute('height', String(CANVAS_HEIGHT - 75));
+  rect.setAttribute('fill', 'none');
+  rect.setAttribute('stroke', 'black');
+  rect.setAttribute('stroke-width', '1');
+  svg.appendChild(rect);
+
   // Name label bottom-left
   const nameToWrite = currentEntryName || 'UNKNOWN';
   buildTextGroup(svg, nameToWrite, 23.5, CANVAS_HEIGHT - 15);
@@ -283,7 +283,7 @@ function exportSVG(): void {
     const match = currentTimestamp.match(/\d{4}/);
     if (match) year = match[0];
   }
-  buildTextGroup(svg, year, 450, CANVAS_HEIGHT - 15);
+  buildTextGroup(svg, year, 551, CANVAS_HEIGHT - 15, 0.2, true);
 
   // Serialize and download
   const serializer = new XMLSerializer();

@@ -341,6 +341,14 @@ function exportSVG() {
   svg.setAttribute('height', CANVAS_HEIGHT.toString());
   svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
+  // Tree path
+  const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  pathEl.setAttribute('d', buildSVGPath(currentParams, currentWeatherData));
+  pathEl.setAttribute('fill', 'none');
+  pathEl.setAttribute('stroke', 'black');
+  pathEl.setAttribute('stroke-width', '1');
+  svg.appendChild(pathEl);
+
   // Border rect
   const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
   rect.setAttribute('x', '25');
@@ -351,14 +359,6 @@ function exportSVG() {
   rect.setAttribute('stroke', 'black');
   rect.setAttribute('stroke-width', '1');
   svg.appendChild(rect);
-
-  // Tree path
-  const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  pathEl.setAttribute('d', buildSVGPath(currentParams, currentWeatherData));
-  pathEl.setAttribute('fill', 'none');
-  pathEl.setAttribute('stroke', 'black');
-  pathEl.setAttribute('stroke-width', '1');
-  svg.appendChild(pathEl);
 
   // Name label bottom-left
   buildTextGroup(svg, currentName || 'TREE', 23.5, CANVAS_HEIGHT - 15);
