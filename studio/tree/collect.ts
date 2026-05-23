@@ -768,64 +768,71 @@ async function generateWeatherDataAndShowPhase2() {
   statusDiv.textContent = 'Gathering weather data...';
   statusDiv.classList.remove('hidden');
 
-  const weatherResults: WeatherDataPoint[] = [];
+  const weatherResults: WeatherDataPoint[] = new Array(yearLocations.length);
+  const BATCH_SIZE = 5;
 
   try {
-    for (let i = 0; i < yearLocations.length; i++) {
-      const yearLoc = yearLocations[i];
-      const location = yearLoc.location;
+    for (let batchStart = 0; batchStart < yearLocations.length; batchStart += BATCH_SIZE) {
+      const batchEnd = Math.min(batchStart + BATCH_SIZE, yearLocations.length);
+      const batchDone = batchEnd;
+      statusDiv.textContent = 'Fetching years ' + (batchStart + 1) + '–' + batchEnd + ' of ' + yearLocations.length + '...';
 
-      if (!location) {
-        weatherResults.push({
-          year: yearLoc.year,
-          location: 'N/A',
-          latitude: 0,
-          longitude: 0,
-          temperature_2m_mean: 'N/A',
-          dew_point_2m_mean: 'N/A',
-          relative_humidity_2m_mean: 'N/A',
-          precipitation_sum: 'N/A',
-        });
-        continue;
-      }
+      await Promise.all(
+        yearLocations.slice(batchStart, batchEnd).map(async (yearLoc, j) => {
+          const i = batchStart + j;
+          const location = yearLoc.location;
 
-      statusDiv.textContent = 'Fetching ' + yearLoc.year + ' (' + (i + 1) + '/' + yearLocations.length + ')...';
+          if (!location) {
+            weatherResults[i] = {
+              year: yearLoc.year,
+              location: 'N/A',
+              latitude: 0,
+              longitude: 0,
+              temperature_2m_mean: 'N/A',
+              dew_point_2m_mean: 'N/A',
+              relative_humidity_2m_mean: 'N/A',
+              precipitation_sum: 'N/A',
+            };
+            return;
+          }
 
-      const startDate = yearLoc.year + '-01-01';
-      const endDate = yearLoc.year + '-12-31';
+          const startDate = yearLoc.year + '-01-01';
+          const endDate = yearLoc.year + '-12-31';
 
-      const weatherData = await fetchWeatherData(
-        parseFloat(location.lat),
-        parseFloat(location.lon),
-        startDate,
-        endDate
+          const weatherData = await fetchWeatherData(
+            parseFloat(location.lat),
+            parseFloat(location.lon),
+            startDate,
+            endDate
+          );
+
+          if (weatherData) {
+            const averages = calculateYearlyAverage(weatherData);
+            weatherResults[i] = {
+              year: yearLoc.year,
+              location: getSimpleLocationName(location),
+              latitude: parseFloat(location.lat),
+              longitude: parseFloat(location.lon),
+              temperature_2m_mean: averages.temperature_2m_mean,
+              dew_point_2m_mean: averages.dew_point_2m_mean,
+              relative_humidity_2m_mean: averages.relative_humidity_2m_mean,
+              precipitation_sum: averages.precipitation_sum,
+            };
+          } else {
+            console.error('Failed to fetch weather data for ' + yearLoc.year);
+            weatherResults[i] = {
+              year: yearLoc.year,
+              location: getSimpleLocationName(location),
+              latitude: parseFloat(location.lat),
+              longitude: parseFloat(location.lon),
+              temperature_2m_mean: 'N/A',
+              dew_point_2m_mean: 'N/A',
+              relative_humidity_2m_mean: 'N/A',
+              precipitation_sum: 'N/A',
+            };
+          }
+        })
       );
-
-      if (weatherData) {
-        const averages = calculateYearlyAverage(weatherData);
-        weatherResults.push({
-          year: yearLoc.year,
-          location: getSimpleLocationName(location),
-          latitude: parseFloat(location.lat),
-          longitude: parseFloat(location.lon),
-          temperature_2m_mean: averages.temperature_2m_mean,
-          dew_point_2m_mean: averages.dew_point_2m_mean,
-          relative_humidity_2m_mean: averages.relative_humidity_2m_mean,
-          precipitation_sum: averages.precipitation_sum,
-        });
-      } else {
-        console.error('Failed to fetch weather data for ' + yearLoc.year);
-        weatherResults.push({
-          year: yearLoc.year,
-          location: getSimpleLocationName(location),
-          latitude: parseFloat(location.lat),
-          longitude: parseFloat(location.lon),
-          temperature_2m_mean: 'N/A',
-          dew_point_2m_mean: 'N/A',
-          relative_humidity_2m_mean: 'N/A',
-          precipitation_sum: 'N/A',
-        });
-      }
     }
 
     statusDiv.classList.add('hidden');
